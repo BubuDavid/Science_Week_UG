@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+	<!-- Material Design Bootstrap -->
+	<link href="static/css/footer.css" rel="stylesheet">
+
+	<!---------- CSS - Bootstrap link ---------->
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+
+	<!-- Font Awesome -->
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+
+	<title>{% block title %} {% endblock %}</title>
+
+</head>
+<body>
+
+	<!-- NEED HAMBURGER! -->
+	<!---------- Navbar ---------->
+		
+	<nav class="navbar navbar-dark bg-dark">
+		<a class="navbar-brand" href="/">
+		<img src="/static/images/futurelab-landscape.png" width="150" height="75"	 class="d-inline-block align-top" alt="">
+		</a>
+		<div class="nav justify-content-end">
+     		<button class="btn btn-outline-success mr-sm-2" type="button">SIGN UP</button>
+     		<button type="button" class="btn btn-outline-primary">LOGIN</button>
+		</div>
+	</nav>
+
+	<!---------- End of Navbar ---------->
+	
+	<!---------- Content ---------->
+
+	{% block content %}
+
+	{% endblock %}
+
+	<!---------- End of Content ---------->
+
+
+	<!---------- Footer ---------->
+
+	<!-- Footer -->
+	<footer class="page-footer font-small cyan darken-3">
+
+	  <!-- Footer Elements -->
+	  <div class="container">
+
+	    <!-- Grid row-->
+	    <div class="row">
+
+	      <!-- Grid column -->
+	      <div class="col-md-12 py-5">
+	        <div class="mb-5 flex-center">
+
+	          <!-- Facebook -->
+	          <a target="_blank" href="https://www.facebook.com/f.lab.mx/">
+	            <i class="fab fa-facebook-f fa-lg white-text mr-md-5 mr-3 fa-2x"> </i>
+	          </a>
+	          <!--Future Lab -->
+	          <a target="_blank" href="https://futurelab.mx">
+	            <i class="fa fa-rocket fa-lg white-text mr-md-5 mr-3 fa-2x"> </i>
+	          </a>
+	          <!--Instagram-->
+	          <a target="_blank" href="https://www.instagram.com/futurelab_team/">
+	            <i class="fab fa-instagram fa-lg white-text mr-md-5 mr-3 fa-2x"> </i>
+	          </a>
+	          <!-- Bubu -->
+	          <a target="_blank" href="https://www.facebook.com/DavidWeroBubu">
+	          	<img src="static/icons/favicon_bubu.ico" class="mr-md-4 mr-2">
+	          </a>
+	          <!-- Zaid +-->
+	          <a target="_blank" href="https://www.facebook.com/metalic.alchemist">
+	            <img src="static/icons/favicon_zaid.ico" class="mr-md-4 mr-2">
+	          </a>
+	        </div>
+	      </div>
+	      <!-- Grid column -->
+
+	    </div>
+	    <!-- Grid row-->
+
+	  </div>
+	  <!-- Footer Elements -->
+
+	  <!-- Copyright -->
+	  <div class="footer-copyright text-center py-3">© 2018 Copyright:
+	    <a target="_blank" href="https://github.com/BlackrockDigital/startbootstrap-grayscale/blob/master/LICENSE"> MIT License</a>
+	  </div>
+	  <!-- Copyright -->
+
+	</footer>
+	<!-- Footer -->
+
+	<!---------- End of Footer ---------->
+
+	<!---------- JS - Bootstrap link ---------->
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+	<!-- MDB core JavaScript -->
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.8.8/js/mdb.min.js"></script>
+
+</body>
+</html>
