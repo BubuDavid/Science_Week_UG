@@ -1,15 +1,15 @@
 """
 <-------- IDEAS ------------>
-- It's a web page.
+- It's a web page. :D
 - Register some alums.
 - SMS with a verification code.
 <-------- Requirements ------------>
-- Python.
-- Flask.
+- Python. :D
+- Flask. :D 
 - Twilio
 - Maybe a Data Base
 <-------- Have to... ------------>
-- Have to be responsive. 
+- Have to be responsive. :D  
 - Useful.
 - Functional.
 """
@@ -41,13 +41,15 @@ def index():
 #Form, footer-contacts, navbar, buttons.
 @app.route('/sign-up', methods = ["GET", "POST"])
 def sign_up():
-	return render_template('sign_up.html', member=bubu)
+	flag = False
+	return render_template('sign_up.html', member=bubu, flag=flag)
 
 #Login section
 #Form, footer-contacts, navbar, buttons.
-@app.route('/Login', methods = ["GET", "POST"])
+@app.route('/login', methods = ["GET", "POST"])
 def login():
-	return "<h1> Here should be a form for a old member </h1>"
+	flag = False
+	return render_template("login.html", flag=flag)
 
 #Page Not Found section
 @app.errorhandler(404)

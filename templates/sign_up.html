@@ -25,17 +25,18 @@
 		- position
 		- social media link
 		- square photo
+		- phone number
 	 -->
-		
+
 		<form class="box rounded center container">
+	 {%if not flag%}
 		  <div class="form-group">
 		    <label for="David Pedroza">Nombre</label>
-		    <input type="text" class="form-control" id="David Pedroza" aria-describedby="emailHelp" placeholder="Ingresa tu nombre">
+		    <input required type="text" class="form-control" id="David Pedroza" aria-describedby="emailHelp" placeholder="Ingresa tu nombre">
 		  </div>
 		  <div class="form-group">
 		    <label for="decription">Por favor, da una breve descripción tuya como la del ejemplo de abajo.</label>
-		    <textarea type="textarea" class="form-control" id="description" placeholder="Descripción">
-		    </textarea>
+		    <textarea required class="form-control" placeholder="Estudiante de física 💧 | Amante de la ciencia y la tecnología 🤖 | Divulgador científico 👨🏻‍🔬 | Obsesivo por los concursos y olimpiadas 🥇 | En búsqueda exhaustiva por conocimiento de todo tipo 🧐 | Jugador nada profesional de voleibol 🏐"></textarea>
 		  </div>
 
 		  <div class="form-group">
@@ -48,22 +49,39 @@
 		 </div>
 		 <div class="form-group">
 		    <label for="social_media">Ingresa un link de una red social tuya.</label>
-		    <input type="textarea" class="form-control" id="social" placeholder="http://facebook.com/... ó http://twitter.com/...">
+		    <input required type="textarea" class="form-control" id="social" placeholder="http://facebook.com/... ó http://twitter.com/...">
 		    </input>
 		  </div>
 
 		  <div class="form-group">
+		     <label for="phone_number">Ingresa tu número telefónico (Recibirás un mensaje con un código de verificación :D).</label>
+		     <input required type="text" class="form-control" id="phone" placeholder="477...">
+		     </input>
+		   </div>
+
+		  <div class="form-group">
 		  	<label>Por favor, sube una foto tuya, de prefencia cuadrada.</label>
 		  <div class="custom-file">
-		    <input type="file" class="custom-file-input" id="customFile">
+		    <input required type="file" class="custom-file-input" id="customFile">
 		    <label class="custom-file-label" for="customFile">Seleccione la foto</label>
 		  </div>
 		  </div>
 
+		  {% endif %}
+
+		{% if flag %}
+			<div class="form-group">
+			   <label for="verification_code">Ingresa tu código de verificación.</label>
+			   <input type="text" class="form-control" id="verification" placeholder="Código de Verificación">
+			   </input>
+			 </div>
+		{% endif %}
+
 		  <button type="submit" class="btn btn-primary">Submit</button>
 		</form>
 
-		<hr class="">
+
+		<hr>
 
 
 		<!-- Example -->
