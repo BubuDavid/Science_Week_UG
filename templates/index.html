@@ -6,8 +6,7 @@
 
 {% block content %}
 
-<div class="container">
-
+<!-- Jumbotron -->
 <div class="jumbotron" style="background:#f5f5f5;">
 	<h1 class="display-4">¡El futuro es hoy viejo!🚀</h1>
 	<p class="lead">Desarrollamos tecnología y compartimos conocimiento. Trabajamos por el futuro que queremos ver.</p>
@@ -21,6 +20,9 @@
 	</p>
 </div>
 
+<!-- Meet us -->
+<div class="container">
+
 <h1 class="display-4"> ¡Conócenos! </h1>
 <br>
 
@@ -33,14 +35,14 @@
 
 			<!-- Name -->
 			<a href="{{ member.social }}" target="_bank">
-					<h5 class="card-title" style="font-size:1.5em; font-family:sans-serif; ">{{ member.name }}</h5>
+					<p class="card-title" style="font-size:1.5em; font-family:sans-serif; margin-bottom:0;">{{ member.name }}</p>
 			</a>			
 
 			<!-- Position -->
-			<p class="card-text"><small class="text-muted">{{ member.pos }} </small></p>
+			<p class="card-text" style="margin-top:0; margin-bottom:5px;"><small class="text-muted">{{ member.pos }} </small></p>
 
 			<!-- Description -->
-			<p class="card-text" style="width: 250px; font-family: sans-serif; line-height:17px;">{{ member.description }}</p>
+			<p class="card-text" style="width: 250px; font-family: sans-serif; line-height:20px; margin-bottom: 30px">{{ member.description }}</p>
 
 
 		</div>

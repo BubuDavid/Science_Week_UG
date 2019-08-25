@@ -1,7 +1,7 @@
 class Member():
 
 	#Attributes:
-	def __init__(self, name, description, photo_link, pos, social):
+	def __init__(self, name, description, photo_link, pos, social, phone):
 		self.name = name
 		self.description = description
 		self.photo = photo_link
@@ -29,7 +29,8 @@ class Collect_Members():
 		for person in self.member_list.values():
 			info = info + person.name + "\n"
 			info = info + person.description + "\n"
-			info = info + person.pos + "\n\n"
+			info = info + person.pos + "\n"
+			info += person.phone
 
 		return info
 
@@ -43,7 +44,7 @@ class Collect_Members():
 		else:
 			print("El mimebro no existe")
 
-	def edit_profile(self, member_edit, new_photo_link="", new_name = "", new_description = "", new_pos="", new_social=""):
+	def edit_profile(self, member_edit, new_photo_link="", new_phone="", new_name = "", new_description = "", new_pos="", new_social=""):
         
 		if member_edit in self.member_list.values():
 			print("No existe el miembro")
@@ -54,6 +55,7 @@ class Collect_Members():
 		photo_link_aux = self.member_list[member_edit].photo
 		pos_aux = self.member_list[member_edit].pos
 		social_aux = self.member_list[member_edit].social
+		phone_aux = self.member_list[member_edit].phone
 
 		if new_name != "":
 			name_aux = new_name
@@ -65,8 +67,10 @@ class Collect_Members():
 			pos_aux = new_pos
 		if new_social != "":
 			social_aux = new_social
+		if new_phone != "":
+			phone_aux = new_phone
 
-		new = Member(social = social_aux, name=name_aux, description=description_aux, photo_link=photo_link_aux, pos=pos_aux)
+		new = Member(phone=phone_aux, social = social_aux, name=name_aux, description=description_aux, photo_link=photo_link_aux, pos=pos_aux)
 
 		self.add(new)
 		self.delete(member_edit)  

@@ -1,0 +1,96 @@
+{% extends 'base.html'%}
+
+{% block title %}
+	Únetenos
+{% endblock%}
+
+{% block adds %}
+	<style type="text/css">
+		.box {
+			width: 50%;
+			border:1px solid lightgray;
+			margin-top: 20px;
+			padding: 10px 10px 10px 10px;
+		}
+
+	</style>
+{% endblock%}
+
+{% block content %}
+	
+
+	<!-- Form
+		- name
+		- description
+		- position
+		- social media link
+		- square photo
+	 -->
+		
+		<form class="box rounded center container">
+		  <div class="form-group">
+		    <label for="David Pedroza">Nombre</label>
+		    <input type="text" class="form-control" id="David Pedroza" aria-describedby="emailHelp" placeholder="Ingresa tu nombre">
+		  </div>
+		  <div class="form-group">
+		    <label for="decription">Por favor, da una breve descripción tuya como la del ejemplo de abajo.</label>
+		    <textarea type="textarea" class="form-control" id="description" placeholder="Descripción">
+		    </textarea>
+		  </div>
+
+		  <div class="form-group">
+		  	<label for="position">A los nuevos miembros por favor pongan: "Community member"</label>
+		     <select class="custom-select" required>
+		       <option value="">Posición</option>
+		       <option value="1">Comminity Member</option>
+		       <option value="2">Coordinator</option>
+		     </select>
+		 </div>
+		 <div class="form-group">
+		    <label for="social_media">Ingresa un link de una red social tuya.</label>
+		    <input type="textarea" class="form-control" id="social" placeholder="http://facebook.com/... ó http://twitter.com/...">
+		    </input>
+		  </div>
+
+		  <div class="form-group">
+		  	<label>Por favor, sube una foto tuya, de prefencia cuadrada.</label>
+		  <div class="custom-file">
+		    <input type="file" class="custom-file-input" id="customFile">
+		    <label class="custom-file-label" for="customFile">Seleccione la foto</label>
+		  </div>
+		  </div>
+
+		  <button type="submit" class="btn btn-primary">Submit</button>
+		</form>
+
+		<hr class="">
+
+
+		<!-- Example -->
+		<center>
+		<h1>Ejemplo:</h1>
+		<div class="container">
+
+		<div class="">
+			<!-- Photo -->
+			<img style="width: 200px; height: 200px" src="{{ member.photo }}" alt="{{ member.name }}" class="img-fluid rounded-circle">
+
+			<!-- Name -->
+			<a href="{{ member.social }}" target="_bank">
+					<p class="card-title" style="font-size:1.5em; font-family:sans-serif; margin-bottom:0;">{{ member.name }}</p>
+			</a>			
+
+			<!-- Position -->
+			<p class="card-text" style="margin-top:0; margin-bottom:5px;"><small class="text-muted">{{ member.pos }} </small></p>
+
+			<!-- Description -->
+			<p class="card-text" style="width: 250px; font-family: sans-serif; line-height:20px; margin-bottom: 30px">{{ member.description }}</p>
+
+
+		</div>
+
+	</div>	
+
+	</center>
+
+{% endblock %}
