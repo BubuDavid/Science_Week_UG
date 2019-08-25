@@ -1,3 +1,15 @@
+# -*- coding: utf-8 -*-
+# ===============================================================
+# Author: David Pedroza Segoviano
+# Email: david.pedroza.segoviano@gmail.com
+#
+# ABOUT COPYING OR USING PARTIAL INFORMATION:
+# This script was originally created by David Pedroza (Bubu), for
+# his workshop in Forum Tecnológico con PUPAS at León, Gto.
+# Any explicit usage of this script or its
+# contents is granted according to the license provided and
+# its conditions.
+# ===============================================================
 
 class Member():
 
