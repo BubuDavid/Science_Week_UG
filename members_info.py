@@ -55,12 +55,13 @@ class Collect_Members():
 		if bad_member in self.member_list:
 			del self.member_list[bad_member]
 		else:
-			print("El mimebro no existe")
+			pass
+			#print("El mimebro no existe")
 
 	def edit_profile(self, member_edit, new_photo_link="", new_phone="", new_name = "", new_description = "", new_pos="", new_social=""):
         
 		if member_edit in self.member_list.values():
-			print("No existe el miembro")
+			#print("No existe el miembro")
 			return
 			
 		name_aux = self.member_list[member_edit].name
