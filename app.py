@@ -17,7 +17,6 @@
 #Import libraries.
 from flask import Flask, render_template
 from members_info import Member, Collect_Members
-import datetime
 
 #Set an app
 app = Flask(__name__, template_folder = "templates")
