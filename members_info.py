@@ -1,3 +1,4 @@
+
 class Member():
 
 	#Attributes:
@@ -74,25 +75,3 @@ class Collect_Members():
 
 		self.add(new)
 		self.delete(member_edit)  
-
-"""
-
-bubu = Member(name='Bubu', description = 'SCIENCE BITCH!', photo_link='https://scontent.fbjx1-1.fna.fbcdn.net/v/t1.0-9/36511070_1727456190663968_8061036432086532096_n.jpg?_nc_cat=109&_nc_eui2=AeHvY-uNbWwHxjD-26n79HpTAGZr9eVNCygPi8AYD9d3k85jeTQ56cU9tbi-yedItJkJV1XeSe9_hM8BEzNYeehH-cdDgI-D390HLAU0kXmh2w&_nc_oc=AQmwu9YOAK2aH4S3RcZ_bkYPbuFKQsJMyRPc7-pCqVQEghcaN5PelA4elRXcJEuvZbyB6YF4X4MsjDsoh4bYcg2E&_nc_ht=scontent.fbjx1-1.fna&oh=c3d04de6f331b03c00be1d3220bcc216&oe=5E084BD0', time=str(datetime.datetime.now()))
-missa = Member(name='Missa', description="I'm joto", photo_link='https://scontent.fbjx1-1.fna.fbcdn.net/v/t1.0-9/59404925_2364695540478790_6760001489923473408_n.jpg?_nc_cat=100&_nc_eui2=AeHWHl1NiAWlnt-fkoCA1m8vdBOCYHRN-ZqHy3McAftCCEFMOCAGFPFogPKQuq1gzS5UEP0dPOKFmLkcFNq1zdLE_hC4cEjKS1RaVK0qjt8Bww&_nc_oc=AQke_4l-w2FcfZR2wkYXLv1K29Eiav01wChTdFN7RR9hA203FWybjqB9U7ueMoWqjkbsQ_9jzgeX1rjkmG1-G7gr&_nc_ht=scontent.fbjx1-1.fna&oh=0e312325e95491606b0433f02d3f4c95&oe=5E1297CE', time=str(datetime.datetime.now()))
-rodo = Member(name="Rodolfo", description="Python Rocks!", photo_link="https://rodolfoferro.xyz/assets/images/profile.jpg", time=str(datetime.datetime.now()))
-"""
-
-"""
-fl_members = Collect_Members({bubu.name: bubu, missa.name: missa})
-
-fl_members.edit_profile(member_edit='Bubu', new_name="David Pedroza")
-
-print(fl_members)
-
-print("NOOOOOOOOOOOOOOOOOWWWWWWWWWWWWWWWW\n")
-
-fl_members.add(rodo)
-fl_members.delete('David Pedroza')
-
-print(fl_members)
-"""
