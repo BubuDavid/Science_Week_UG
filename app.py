@@ -31,12 +31,13 @@
 #Import libraries.
 from flask import Flask, render_template
 from members_info import Member, Collect_Members
+from unidecode import unidecode
 
 #Set an app
 app = Flask(__name__, template_folder = "templates")
 
 #Set a global user, I'll use later.
-bubu = Member(phone="", social="https://www.facebook.com/DavidWeroBubu", name="David Pedroza", description="Estudiante de física 💧 | Amante de la ciencia y la tecnología 🤖 | Divulgador científico 👨🏻‍🔬 | Obsesivo por los concursos y olimpiadas 🥇 | En búsqueda exhaustiva por conocimiento de todo tipo 🧐 | Jugador nada profesional de voleibol 🏐", photo_link="https://scontent.fbjx1-1.fna.fbcdn.net/v/t1.0-9/36511070_1727456190663968_8061036432086532096_n.jpg?_nc_cat=109&_nc_oc=AQlmkWJAgd4gZSTfNYTPsU6rkkc3tR_E4Rv4LuCWf_YGTFAaYx--Q2YeTnupuToeAehQuEcx9DzwQ68MMKB9cLV4&_nc_ht=scontent.fbjx1-1.fna&oh=dcd11e166fcda7cc0fe530567d79e93e&oe=5E084BD0", pos="Coordinator")
+bubu = Member(phone="", social="https://www.facebook.com/DavidWeroBubu", name="David Pedroza", description=unidecode("Estudiante de física 💧 | Amante de la ciencia y la tecnología 🤖 | Divulgador científico 👨🏻‍🔬 | Obsesivo por los concursos y olimpiadas 🥇 | En búsqueda exhaustiva por conocimiento de todo tipo 🧐 | Jugador nada profesional de voleibol 🏐"), photo_link="https://scontent.fbjx1-1.fna.fbcdn.net/v/t1.0-9/36511070_1727456190663968_8061036432086532096_n.jpg?_nc_cat=109&_nc_oc=AQlmkWJAgd4gZSTfNYTPsU6rkkc3tR_E4Rv4LuCWf_YGTFAaYx--Q2YeTnupuToeAehQuEcx9DzwQ68MMKB9cLV4&_nc_ht=scontent.fbjx1-1.fna&oh=dcd11e166fcda7cc0fe530567d79e93e&oe=5E084BD0", pos="Coordinator")
 
 #Index section
 #Jumbotron, navbar, buttons, footer-contacts.
