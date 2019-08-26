@@ -1,6 +1,6 @@
 from pymongo import MongoClient
 
-MONGO_URI = "mongodb+srv://admin:admin@cluster0-qvpho.mongodb.net/test?retryWrites=true&w=majority"
+MONGO_URI = "mongodb+srv://<user>:<password>@cluster0-qvpho.mongodb.net/test?retryWrites=true&w=majority"
 
 
 def db_connect(MONGO_URI, db_name, col_name):
