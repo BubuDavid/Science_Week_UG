@@ -31,18 +31,18 @@
 	{% for member in members %}
 		<div class="column is-one-third" style="margin-right: 50px; margin-left: 50px; text-align: center;">
 			<!-- Photo -->
-			<img style="width: 200px; height: 200px" src="{{ member.photo }}" alt="{{ member.name }}" class="img-fluid rounded-circle">
+			<img style="width: 200px; height: 200px" src="{{ member['Photo_link'] }}" alt="{{ member['Name'] }}" class="img-fluid rounded-circle">
 
 			<!-- Name -->
-			<a href="{{ member.social }}" target="_bank">
-					<p class="card-title" style="font-size:1.5em; font-family:sans-serif; margin-bottom:0;">{{ member.name }}</p>
+			<a href="{{ member['Social'] }}" target="_bank">
+					<p class="card-title" style="font-size:1.5em; font-family:sans-serif; margin-bottom:0;">{{ member['Name'] }}</p>
 			</a>			
 
 			<!-- Position -->
-			<p class="card-text" style="margin-top:0; margin-bottom:5px;"><small class="text-muted">{{ member.pos }} </small></p>
+			<p class="card-text" style="margin-top:0; margin-bottom:5px;"><small class="text-muted">{{ member['Position'] }} </small></p>
 
 			<!-- Description -->
-			<p class="card-text" style="width: 250px; font-family: sans-serif; line-height:20px; margin-bottom: 30px">{{ member.description }}</p>
+			<p class="card-text" style="width: 250px; font-family: sans-serif; line-height:20px; margin-bottom: 30px">{{ member['Description'] }}</p>
 
 
 		</div>

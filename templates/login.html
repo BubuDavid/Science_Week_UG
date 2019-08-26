@@ -22,23 +22,23 @@
 {% endblock%}
 
 {% block content %}
-<form class="box rounded center container">
+<form class="box rounded center container" method="POST">
 
 	{% if not flag %}
 	<div class="form-group">
 		<label for="name">Nombre</label>
-		<input required type="text" class="form-control" id="name" aria-describedby="Name" placeholder="Ingresa tu nombre">
+		<input required type="text" class="form-control" id="name" aria-describedby="Name" placeholder="Ingresa tu nombre" name="name">
 	</div>
 
 	<div class="form-group">
 		<label for="phone">Número de teléfono</label>
-		<input required type="text" class="form-control" id="phone" aria-describedby="phone" placeholder="Ingresa tu número de teléfono">
+		<input required name="phone_number" type="text" class="form-control" id="phone" aria-describedby="phone" placeholder="Ingresa tu número de teléfono">
 	</div>
 
 	{% else %}
 		<div class="form-group">
 			   <label for="verification_code">Ingresa tu código de verificación.</label>
-			   <input type="text" class="form-control" id="verification" placeholder="Código de Verificación">
+			   <input required name="verification_code" type="text" class="form-control" id="verification" placeholder="Código de Verificación">
 			   </input>
 		</div>
 	{% endif %}

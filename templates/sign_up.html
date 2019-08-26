@@ -28,51 +28,52 @@
 		- phone number
 	 -->
 
-		<form class="box rounded center container">
-	 {%if not flag%}
+		<form class="box rounded center container" method="POST">
+	 	{% if flag %}
+	 	<div class="alert alert-dark alert-dismissible fade show" role="alert">
+	 	  <strong>¡Gracias por suscribirte {{ name.split(' ')[0] }}!</strong> ¡Ahora puedes iniciar sesión con tu nombre de usuario!
+	 	  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+	 	    <span aria-hidden="true">&times;</span>
+	 	  </button>
+	 	</div>
+	 	{% endif %}
+
+	 {%if not vc%}
+
 		  <div class="form-group">
-		    <label for="David Pedroza">Nombre</label>
-		    <input required type="text" class="form-control" id="David Pedroza" aria-describedby="emailHelp" placeholder="Ingresa tu nombre">
+		    <label for="name">Nombre</label>
+		    <input required name="name" type="text" class="form-control" placeholder="Ingresa tu nombre"></input>
 		  </div>
 		  <div class="form-group">
-		    <label for="decription">Por favor, da una breve descripción tuya como la del ejemplo de abajo.</label>
-		    <textarea required class="form-control" placeholder="Estudiante de física 💧 | Amante de la ciencia y la tecnología 🤖 | Divulgador científico 👨🏻‍🔬 | Obsesivo por los concursos y olimpiadas 🥇 | En búsqueda exhaustiva por conocimiento de todo tipo 🧐 | Jugador nada profesional de voleibol 🏐"></textarea>
+		    <label for="description">Por favor, da una breve descripción tuya como la del ejemplo de abajo.</label>
+		    <textarea name="description" required class="form-control" placeholder="Estudiante de física 💧 | Amante de la ciencia y la tecnología 🤖 | Divulgador científico 👨🏻‍🔬 | Obsesivo por los concursos y olimpiadas 🥇 | En búsqueda exhaustiva por conocimiento de todo tipo 🧐 | Jugador nada profesional de voleibol 🏐"></textarea>
 		  </div>
 
 		  <div class="form-group">
 		  	<label for="position">A los nuevos miembros por favor pongan: "Community member"</label>
-		     <select class="custom-select" required>
-		       <option value="">Posición</option>
-		       <option value="1">Comminity Member</option>
-		       <option value="2">Coordinator</option>
-		     </select>
+		     <input required name="position" type="text" class="form-control" placeholder="Community Member"></input>
 		 </div>
 		 <div class="form-group">
-		    <label for="social_media">Ingresa un link de una red social tuya.</label>
-		    <input required type="textarea" class="form-control" id="social" placeholder="http://facebook.com/... ó http://twitter.com/...">
-		    </input>
+		    <label for="social">Ingresa un link de una red social tuya.</label>
+		    <input required name="social" type="textarea" class="form-control" id="social" placeholder="http://facebook.com/... ó http://twitter.com/..."></input>
 		  </div>
 
 		  <div class="form-group">
 		     <label for="phone_number">Ingresa tu número telefónico (Recibirás un mensaje con un código de verificación :D).</label>
-		     <input required type="text" class="form-control" id="phone" placeholder="477...">
-		     </input>
+		     <input required name="phone_number" type="text" class="form-control" id="phone" placeholder="477..."></input>
 		   </div>
 
 		  <div class="form-group">
-		  	<label>Por favor, sube una foto tuya, de prefencia cuadrada.</label>
-		  <div class="custom-file">
-		    <input required type="file" class="custom-file-input" id="customFile">
-		    <label class="custom-file-label" for="customFile">Seleccione la foto</label>
-		  </div>
+		  	<label for="photo_link">Por favor, ingresa el link de una foto tuya</label>
+		  	<input required name="photo_link" type="text" class="form-control" placeholder="http://facebook.com/my_photo.jpg"></input>
 		  </div>
 
 		  {% endif %}
 
-		{% if flag %}
+		{% if vc %}
 			<div class="form-group">
 			   <label for="verification_code">Ingresa tu código de verificación.</label>
-			   <input type="text" class="form-control" id="verification" placeholder="Código de Verificación">
+			   <input name="verification_code" type="text" class="form-control" id="verification" placeholder="Código de Verificación">
 			   </input>
 			 </div>
 		{% endif %}
