@@ -30,8 +30,16 @@
 
 		<form class="box rounded center container" method="POST">
 	 	{% if flag %}
-	 	<div class="alert alert-dark alert-dismissible fade show" role="alert">
+	 	<div class="alert alert-primary alert-dismissible fade show" role="alert">
 	 	  <strong>¡Gracias por suscribirte {{ name.split(' ')[0] }}!</strong> ¡Ahora puedes iniciar sesión con tu nombre de usuario!
+	 	  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+	 	    <span aria-hidden="true">&times;</span>
+	 	  </button>
+	 	</div>
+	 	{% endif %}
+	 	{% if repeat %}
+	 	<div class="alert alert-warning alert-dismissible fade show" role="alert">
+	 	  <strong>Holy guacamole!</strong> El número de teléfono que ingresaste ya existe, lo siento, ingresa uno nuevo.
 	 	  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
 	 	    <span aria-hidden="true">&times;</span>
 	 	  </button>

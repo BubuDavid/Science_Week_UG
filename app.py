@@ -71,37 +71,49 @@ def index():
 def sign_up():
 	flag = False
 	vc = False
+	repeat=False
 	form = New_Member(request.form)
-	new_name=None
-	new_description=None
-	new_position=None
-	new_social=None
-	new_phone_number=None
-	new_photo_link=None
-	condition=None
+	new_name=""
+	new_description=""
+	new_position=""
+	new_social=""
+	new_phone_number=""
+	new_photo_link=""
+	condition=""
 
 	if request.method == 'POST':
-		new_name = form.name.data
-		new_description = form.description.data #.decode('utf-8')
-		new_position = form.position.data
-		new_social = form.social.data
-		new_phone_number = form.phone_number.data
-		new_photo_link = form.photo_link.data
-		condition=[new_social, new_position, new_description, new_name, new_photo_link, new_phone_number]
-		if condition != ['','','','','','']:
-			member = {
-				"Name": new_name,
-				"Description": new_description,
-				"Position": new_position,
-				"Social": new_social,
-				"Phone_number": new_phone_number,
-				"Photo_link": new_photo_link
-			}
-			db_insert_user(users, member)
-			flag = True
+		repeat=False
+		auxiliar = db_find_all(users, {"Phone_number": str(form.phone_number.data)})
+		try:
+			for item in auxiliar:
+				print(item['Name'])
+				repeat=True
+		finally:
+			if repeat!=True:
+				
+				new_name = form.name.data
+				new_description = form.description.data #.decode('utf-8')
+				new_position = form.position.data
+				new_social = form.social.data
+				new_phone_number = form.phone_number.data
+				new_photo_link = form.photo_link.data
+				condition=[new_social, new_position, new_description, new_name, new_photo_link, new_phone_number]
+				
+				if condition != ['','','','','','']:
+					member = {
+						"Name": new_name,
+						"Description": new_description,
+						"Position": new_position,
+						"Social": new_social,
+						"Phone_number": new_phone_number,
+						"Photo_link": new_photo_link
+					}
+
+					db_insert_user(users, member)
+					flag = True
 
 
-	return render_template('sign_up.html', vc=vc, member=test_profile, flag=flag, name=new_name)
+	return render_template('sign_up.html', repeat=repeat, vc=vc, member=test_profile, flag=flag, name=new_name)
 
 #Login section
 #Form, footer-contacts, navbar, buttons.
