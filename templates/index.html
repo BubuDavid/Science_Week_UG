@@ -26,10 +26,11 @@
 <h1 class="display-4"> ¡Conócenos! </h1>
 <br>
 
-<div class="row columns container">
-
+<div class="container">
+	<center>
+<div class="row columns">
 	{% for member in members %}
-		<div class="column is-one-third" style="margin-right: 50px; margin-left: 50px; text-align: center;">
+		<div class="column is-one-third" style="margin-right: 5%; margin-left: 1%; text-align: center;">
 			<!-- Photo -->
 			<img style="width: 200px; height: 200px" src="{{ member['Photo_link'] }}" alt="{{ member['Name'] }}" class="img-fluid rounded-circle">
 
@@ -48,6 +49,8 @@
 		</div>
 	{% endfor %}
 
+</div>
+	</center>
 </div>
 
 </div>
