@@ -1,0 +1,29 @@
+{% extends 'base.html'%}
+
+{% block title %}
+	Código de Verificación
+{% endblock%}
+
+{% block content %}
+
+	{% if error %}
+	 	<div class="alert alert-danger alert-dismissible fade show" role="alert">
+	 	  <strong>Holy guacamole!</strong> El código es incorrecto, intenta de nuevo.
+	 	  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+	 	    <span aria-hidden="true">&times;</span>
+	 	  </button>
+	 	</div>
+	 	{% endif %}
+
+		<form class="box rounded center container" method="POST">
+			<div class="form-group">
+			   <label for="code">Ingresa tu código de verificación.</label>
+			   <input required name="code" type="text" class="form-control" placeholder="Código de Verificación">
+			   </input>
+			 </div>
+		  <button type="submit" class=" form-group btn btn-primary">Submit</button>
+		</form>
+		  <a href="/"><button type="send" class="btn btn-danger">HOME</button></a>
+		
+
+{% endblock %}
