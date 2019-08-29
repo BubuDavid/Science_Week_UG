@@ -13,7 +13,9 @@ class New_Member(Form):
     phone_number = StringField('phone_number', validators=[DataRequired()])
     photo_link = StringField('photo_link', validators=[DataRequired()])
 
-
 class LoginForm(Form):
     username = StringField('username', validators=[DataRequired()])
     password = StringField('password', validators=[DataRequired()])
+
+class Code_Verification_Form(Form):
+    code = StringField('v_code', validators=[DataRequired()])
