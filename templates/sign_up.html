@@ -2,19 +2,8 @@
 
 {% block title %}
 	Únetenos
-{% endblock%}
+{% endblock %}
 
-{% block adds %}
-	<style type="text/css">
-		.box {
-			width: 50%;
-			border:1px solid lightgray;
-			margin-top: 20px;
-			padding: 10px 10px 10px 10px;
-		}
-
-	</style>
-{% endblock%}
 
 {% block content %}
 	
@@ -31,7 +20,7 @@
 		<form class="box rounded center container" method="POST">
 	 	{% if flag %}
 	 	<div class="alert alert-primary alert-dismissible fade show" role="alert">
-	 	  <strong>¡Gracias por suscribirte {{ name.split(' ')[0] }}!</strong> ¡Ahora puedes iniciar sesión con tu nombre de usuario!
+	 	  <strong>¡Gracias por suscribirte!</strong> ¡Ahora puedes iniciar sesión con tu nombre de usuario!
 	 	  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
 	 	    <span aria-hidden="true">&times;</span>
 	 	  </button>
@@ -46,7 +35,7 @@
 	 	</div>
 	 	{% endif %}
 
-	 {%if not vc%}
+	 {% if vc== False and not flag %}
 
 		  <div class="form-group">
 		    <label for="name">Nombre</label>
@@ -75,25 +64,17 @@
 		  	<label for="photo_link">Por favor, ingresa el link de una foto tuya</label>
 		  	<input required name="photo_link" type="text" class="form-control" placeholder="http://facebook.com/my_photo.jpg"></input>
 		  </div>
-
+		   <button type="submit" class="btn btn-primary">Submit</button>
+		</form>
 		  {% endif %}
 
-		{% if vc %}
-			<div class="form-group">
-			   <label for="verification_code">Ingresa tu código de verificación.</label>
-			   <input name="verification_code" type="text" class="form-control" id="verification" placeholder="Código de Verificación">
-			   </input>
-			 </div>
-		{% endif %}
-
-		  <button type="submit" class="btn btn-primary">Submit</button>
-		</form>
 
 
 		<hr>
 
 
 		<!-- Example -->
+		{% if not flag %}
 		<center>
 		<h1>Ejemplo:</h1>
 		<div class="container">
@@ -119,5 +100,6 @@
 	</div>	
 
 	</center>
+	{% endif %}
 
 {% endblock %}

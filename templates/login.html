@@ -4,17 +4,6 @@
 	Jalo
 {% endblock%}
 
-{% block adds %}
-	<style type="text/css">
-		.box {
-			width: 50%;
-			border:1px solid lightgray;
-			margin-top: 20px;
-			padding: 10px 10px 10px 10px;
-		}
-	</style>
-{% endblock%}
-
 {% block content %}
 <form class="box rounded center container" method="POST">
 
@@ -33,13 +22,9 @@
 		<div class="form-group">
 			   <label for="verification_code">Ingresa tu código de verificación.</label>
 			   <input required name="verification_code" type="text" class="form-control" id="verification" placeholder="Código de Verificación">
-			   </input>
 		</div>
 	{% endif %}
-
-
-	<button class="btn btn-success" style="">Submit</button>
-
+	
 </form>
 
 {% endblock %}

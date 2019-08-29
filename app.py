@@ -29,26 +29,28 @@
 """
 
 #Import libraries.
-from flask import Flask, render_template, url_for, request, session, redirect
+from flask import Flask, render_template, request, session, redirect
 from members_info import Member, Collect_Members
 from unidecode import unidecode
 from dbmongo import MONGO_URI
 from dbmongo import db_connect
 from dbmongo import db_insert_user
 from dbmongo import db_find_all
-from form import LoginForm
-from form import New_Member
-
+from dbmongo import db_delete_one
+from form import LoginForm, New_Member, Code_Verification_Form
+from Verification_Code_Twilio import send_SMS, code_generator
 
 #Set an app
 app = Flask(__name__, template_folder = "templates")
 #Set users dbconnector
 users = db_connect(MONGO_URI, 'mi_app', 'users')
+tempdb = db_connect(MONGO_URI, 'test_database', 'posts')
+member = {}
 
 test_profile = Member(phone="", 
               social="https://www.facebook.com/DavidWeroBubu", 
               name="David Pedroza", 
-              description="Estudiante de física 💧 | Amante de la ciencia y la tecnología 🤖 | Divulgador científico 👨🏻‍🔬 | Obsesivo por los concursos y olimpiadas 🥇 | En búsqueda exhaustiva por conocimiento de todo tipo 🧐 | Jugador nada profesional de voleibol 🏐",#.decode('utf8'), 
+              description="Estudiante de física 💧 | Amante de la ciencia y la tecnología 🤖 | Divulgador científico 👨🏻‍🔬 | Obsesivo por los concursos y olimpiadas 🥇 | En búsqueda exhaustiva por conocimiento de todo tipo 🧐 | Jugador nada profesional de voleibol 🏐".decode('utf8'), 
               photo_link="https://scontent.fbjx1-1.fna.fbcdn.net/v/t1.0-9/36511070_1727456190663968_8061036432086532096_n.jpg?_nc_cat=109&_nc_oc=AQlmkWJAgd4gZSTfNYTPsU6rkkc3tR_E4Rv4LuCWf_YGTFAaYx--Q2YeTnupuToeAehQuEcx9DzwQ68MMKB9cLV4&_nc_ht=scontent.fbjx1-1.fna&oh=dcd11e166fcda7cc0fe530567d79e93e&oe=5E084BD0", 
               pos="Coordinator"
 
@@ -58,18 +60,43 @@ test_profile = Member(phone="",
 #Jumbotron, navbar, buttons, footer-contacts.
 @app.route('/')  
 def index():
-	session_active=False
-	if 'username' in session:
-		session_active = True
+	error = False
 	fl_members = db_find_all(users)
 
-	return render_template('index.html', session_active=session_active, members = fl_members)
+	return render_template('index.html', members = fl_members)
+
+@app.route('/verification_code/<string:vc>/<int:error>', methods=['GET', 'POST'])
+def verification_code(vc, error):
+	form2 = Code_Verification_Form(request.form)
+	print(vc)
+	
+	if request.method == 'POST':
+		while form2.code.data != vc:
+			return redirect(f'/verification_code/{vc}/1')
+		#Put member in db.
+		new_member = db_find_all(tempdb)
+
+		for item in new_member:
+			query = {
+				"Name": item['Name'],
+				"Description": item['Description'],
+				"Position": item['Position'],
+				"Social": item['Social'],
+				"Phone_number": item['Phone_number'],
+				"Photo_link": item['Photo_link']
+			}
+		db_delete_one(tempdb, query)
+		db_insert_user(users, query)
+			
+		return redirect('/sign-up/1')
+
+	return render_template("verification.html", error=error)
+
 
 #Sign_up section
 #Form, footer-contacts, navbar, buttons.
-@app.route('/sign-up', methods = ["GET", "POST"])
-def sign_up():
-	flag = False
+@app.route('/sign-up/<int:flag>', methods = ["GET", "POST"])
+def sign_up(flag):
 	vc = False
 	repeat=False
 	form = New_Member(request.form)
@@ -81,13 +108,13 @@ def sign_up():
 	new_photo_link=""
 	condition=""
 
-	if request.method == 'POST':
+	if request.method == 'POST' and vc == False:
 		repeat=False
 		auxiliar = db_find_all(users, {"Phone_number": str(form.phone_number.data)})
 		try:
 			for item in auxiliar:
 				print(item['Name'])
-				repeat=True
+				#repeat=True
 		finally:
 			if repeat!=True:
 				
@@ -109,11 +136,16 @@ def sign_up():
 						"Photo_link": new_photo_link
 					}
 
-					db_insert_user(users, member)
-					flag = True
+					#Code_Verification_Section
+					sid = os.environ.get('TWILIO_AUTH_SID')
+					token = os.environ.get('TWILIO_AUTH_TOKEN')
+					vc = code_generator(new_name)	
+					print(vc)
+					send_SMS(account_sid = sid, auth_token=token, phone_number=new_phone_number, message_content=vc)
+					db_insert_user(tempdb, member)
+					return redirect(f'/verification_code/{vc}/0')
 
-
-	return render_template('sign_up.html', repeat=repeat, vc=vc, member=test_profile, flag=flag, name=new_name)
+	return render_template('sign_up.html', vc=vc, repeat=repeat, member=test_profile, flag=flag, name=new_name)
 
 #Login section
 #Form, footer-contacts, navbar, buttons.
